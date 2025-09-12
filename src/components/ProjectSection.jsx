@@ -391,7 +391,7 @@ const App = () => {
       image: "/images/portfolio-chatbot.png",
       githubUrl: "https://github.com/yogu-code/personal-chat-bot", // Single repo
       liveUrl: "https://portfolio-yogu.vercel.app",
-      date: "2025",
+      date: "2024",
       status: "Completed",
     },
     {
@@ -429,11 +429,30 @@ const App = () => {
       description:
         "A full-stack application designed to help users manage and track their job applications. It provides features to add, update, and monitor application progress. The system also integrates with your work email to automatically detect HR-related emails about applications and update the application status accordingly.",
       technologies: ["React", "Node.js", "MongoDB", "Nodemailer/IMAP API"],
-      frontendRepo: "https://github.com/yogu-code/job-application-manager-frontend",
-      backendRepo: "https://github.com/yogu-code/job-application-manager-backend",
+      frontendRepo:
+        "https://github.com/yogu-code/job-application-manager-frontend",
+      backendRepo:
+        "https://github.com/yogu-code/job-application-manager-backend",
       liveUrl: "none",
-      date: "2024",
+      date: "2025",
       status: "in Progress",
+    },
+    {
+      title: "Component Shop",
+      description:
+        "A web app that showcases reusable UI components like buttons, cards, and navbars. Users can preview each component live, copy the code, and explore both free and premium components with filtering and search options.",
+      technologies: [
+        "MongoDB",
+        "Express.js",
+        "React",
+        "Node.js",
+        "Tailwind CSS",
+        "Next JS",
+      ],
+      githubUrl: "none",
+      liveUrl: "none",
+      date: "2025",
+      status: "In Progress",
     },
   ];
 
