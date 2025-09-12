@@ -8,7 +8,9 @@ const ProjectCard = ({
   title = "Project Title",
   description = "A brief description of what this project does and the technologies used to build it.",
   technologies = ["React", "JavaScript"],
-  githubUrl,
+  githubUrl, // Legacy support - single repo
+  frontendRepo, // New - frontend repository
+  backendRepo, // New - backend repository
   liveUrl,
   date = "2024",
   status = "Completed",
@@ -27,6 +29,12 @@ const ProjectCard = ({
     }
   };
 
+  // Check if we have multiple repositories
+  const hasMultipleRepos = frontendRepo && backendRepo;
+  const hasSingleRepo = githubUrl && githubUrl !== "none";
+  const hasAnyRepo =
+    hasMultipleRepos || hasSingleRepo || frontendRepo || backendRepo;
+
   // Animation variants for the card
   const cardVariants = {
     hidden: {
@@ -40,13 +48,12 @@ const ProjectCard = ({
       scale: 1,
       transition: {
         duration: 0.6,
-        delay: index * 0.1, // Stagger animation based on index
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom easing
+        delay: index * 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  // Hover animation variants
   const hoverVariants = {
     hover: {
       y: -8,
@@ -58,7 +65,6 @@ const ProjectCard = ({
     },
   };
 
-  // Image animation variants
   const imageVariants = {
     hidden: { scale: 1.1, opacity: 0 },
     visible: {
@@ -72,7 +78,6 @@ const ProjectCard = ({
     },
   };
 
-  // Content animation variants
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -86,7 +91,6 @@ const ProjectCard = ({
     },
   };
 
-  // Button animation variants
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -256,44 +260,111 @@ const ProjectCard = ({
 
         {/* Action Buttons */}
         <motion.div
-          className="flex gap-3"
+          className="flex flex-col gap-3"
           variants={buttonVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {githubUrl && githubUrl !== "none" && (
-            <motion.a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <Github className="w-4 h-4" />
-              Code
-            </motion.a>
+          {/* GitHub Repository Buttons */}
+          {hasMultipleRepos && (
+            <div className="flex gap-2">
+              <motion.a
+                href={frontendRepo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <Github className="w-4 h-4" />
+                <span className="text-sm">Frontend</span>
+              </motion.a>
+              <motion.a
+                href={backendRepo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <Github className="w-4 h-4" />
+                <span className="text-sm">Backend</span>
+              </motion.a>
+            </div>
           )}
 
-          {liveUrl && liveUrl !== "none" && (
-            <motion.a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
-            </motion.a>
+          {/* Single GitHub Repository or Individual Repo Buttons */}
+          {!hasMultipleRepos && (
+            <div className="flex gap-3">
+              {hasSingleRepo && (
+                <motion.a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  <Github className="w-4 h-4" />
+                  Code
+                </motion.a>
+              )}
+
+              {frontendRepo && !backendRepo && (
+                <motion.a
+                  href={frontendRepo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  <Github className="w-4 h-4" />
+                  Frontend
+                </motion.a>
+              )}
+
+              {backendRepo && !frontendRepo && (
+                <motion.a
+                  href={backendRepo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  <Github className="w-4 h-4" />
+                  Backend
+                </motion.a>
+              )}
+            </div>
           )}
 
-          {(!githubUrl || githubUrl === "none") &&
-            (!liveUrl || liveUrl === "none") && (
+          {/* Live Demo Button */}
+          <div className="flex gap-3">
+            {liveUrl && liveUrl !== "none" && (
+              <motion.a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Live Demo
+              </motion.a>
+            )}
+
+            {/* Coming Soon fallback */}
+            {!hasAnyRepo && (!liveUrl || liveUrl === "none") && (
               <motion.div
                 className="flex-1 flex items-center justify-center gap-2 bg-gray-400 text-white font-medium py-2 px-4 rounded-lg cursor-not-allowed"
                 variants={buttonVariants}
@@ -302,13 +373,14 @@ const ProjectCard = ({
                 Coming Soon
               </motion.div>
             )}
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
   );
 };
 
-// Example usage with project portfolio
+// Example usage with updated project data
 const App = () => {
   const projects = [
     {
@@ -317,7 +389,7 @@ const App = () => {
         "An AI-powered chatbot built with Python, Flask, Gemini API, and LangChain to enhance user interaction on my portfolio site. It can answer queries, read and extract insights from PDFs, and provide real-time, document-based responses for a more engaging user experience.",
       technologies: ["Python", "Flask", "Gemini API", "LangChain"],
       image: "/images/portfolio-chatbot.png",
-      githubUrl: "https://github.com/yogu-code/personal-chat-bot",
+      githubUrl: "https://github.com/yogu-code/personal-chat-bot", // Single repo
       liveUrl: "https://portfolio-yogu.vercel.app",
       date: "2025",
       status: "Completed",
@@ -333,11 +405,13 @@ const App = () => {
         "Node.js",
         "Socket.IO",
       ],
-      // No image provided - will show default gradient with code icon
-      githubUrl: "none",
-      liveUrl: "none",
+      // Multiple repositories
+      image: "/images/chess-game.png",
+      frontendRepo: "https://github.com/yogu-code/chess-frontend",
+      backendRepo: "https://github.com/yogu-code/chess-backend",
+      liveUrl: "https://yogu-code.github.io/chess-frontend/",
       date: "2025",
-      status: "In Progress",
+      status: "Completed",
     },
     {
       title: "Portfolio Website",
@@ -345,14 +419,24 @@ const App = () => {
         "A React-based portfolio built with the MERN stack, focusing on frontend design and project showcases with minimal backend functionality.",
       technologies: ["Next.js", "React.js", "Tailwind CSS"],
       image: "/images/portfolio-website.png",
-      githubUrl: "https://github.com/yogu-code/yogu-portfolio",
+      githubUrl: "https://github.com/yogu-code/yogu-portfolio", // Single repo
       liveUrl: "https://portfolio-yogu.vercel.app",
       date: "2025",
       status: "Completed",
     },
+    {
+      title: "Job-Application Manager",
+      description:
+        "A full-stack application designed to help users manage and track their job applications. It provides features to add, update, and monitor application progress. The system also integrates with your work email to automatically detect HR-related emails about applications and update the application status accordingly.",
+      technologies: ["React", "Node.js", "MongoDB", "Nodemailer/IMAP API"],
+      frontendRepo: "https://github.com/yogu-code/job-application-manager-frontend",
+      backendRepo: "https://github.com/yogu-code/job-application-manager-backend",
+      liveUrl: "none",
+      date: "2024",
+      status: "in Progress",
+    },
   ];
 
-  // Container animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -364,7 +448,6 @@ const App = () => {
     },
   };
 
-  // Title animation variants
   const titleVariants = {
     hidden: { opacity: 0, y: -30 },
     visible: {
@@ -444,6 +527,8 @@ const App = () => {
               technologies={project.technologies}
               image={project.image}
               githubUrl={project.githubUrl}
+              frontendRepo={project.frontendRepo}
+              backendRepo={project.backendRepo}
               liveUrl={project.liveUrl}
               date={project.date}
               status={project.status}
