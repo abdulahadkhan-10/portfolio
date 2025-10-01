@@ -23,7 +23,7 @@ export default function Hero() {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div className="text-4xl sm:text-5xl md:text-7xl font-bold dark:text-white text-center font-robotoFlex">
-        Yogesh Rane
+        Abdul Ahad Khan
       </div>
       <div className="font-extralight text-xl sm:text-2xl md:text-4xl dark:text-neutral-200 py-6 sm:py-8 text-center font-robotoFlex">
         Full-Stack Developer

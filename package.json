@@ -11,6 +11,7 @@
   "dependencies": {
     "@tabler/icons-react": "^3.34.0",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "framer-motion": "^12.16.0",
     "gh-pages": "^6.3.0",
     "lucide-react": "^0.511.0",

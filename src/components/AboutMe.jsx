@@ -55,7 +55,7 @@ export default function AboutMe() {
           </span>
         </h1>
         <p className="text-base md:text-lg text-gray-800 dark:text-gray-100">
-          Hi, I’m Yogesh Rane — a passionate web developer specializing in
+          Hi, I’m Abdul Ahad Khan — a passionate web developer specializing in
           building modern, responsive websites and applications. I enjoy
           crafting clean, efficient code and creating user-friendly experiences.
           With a solid foundation in React, JavaScript, and backend
@@ -71,8 +71,8 @@ export default function AboutMe() {
       {/* Right Side - Image */}
       <div className="order-2 flex-1 flex justify-center items-center w-full md:w-auto">
         <Image
-          src="/images/MySelf.png"
-          alt="Yogesh Rane"
+          src="/images/Myself.jpeg"
+          alt="Abdul Ahad Khan"
           width={600}
           height={600}
           className="rounded-lg shadow-lg object-cover"

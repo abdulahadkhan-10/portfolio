@@ -33,10 +33,10 @@ export default function NavbarDemo({ children }) {
 
   // Your contact information - update with your actual details
   const contactInfo = {
-    email: "yogeshrane019@gmail.com",
-    phone: "+91 8779269045",
-    linkedin: "https://linkedin.com/in/yogesh-rane-503226345/",
-    github: "https://github.com/yogu-code",
+    email: "st.abdul24@gmail.com",
+    phone: "+91 9867607406",
+    linkedin: "https://linkedin.com/in/abdul-ahad-khan-0800ba307/",
+    github: "https://github.com/abdulahadkhan-10",
     location: "Mumbai, India"
   };
 

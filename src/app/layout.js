@@ -19,11 +19,11 @@ const robotoFlex = Roboto_Flex({
 });
 
 export const metadata = {
-  title: "Yogesh Rane | Portfolio",
+  title: "Abdul Ahad Khan | Portfolio",
   description:
-    "Portfolio of Yogesh Rane – Backend Developer & Aspiring Data Engineer. Explore projects, skills, and my journey in tech.",
+    "Portfolio of Abdul Ahad Khan – Backend Developer & Aspiring Data Engineer. Explore projects, skills, and my journey in tech.",
   keywords: [
-    "Yogesh Rane",
+    "Abdul Ahad Khan",
     "Portfolio",
     "Backend Developer",
     "Data Engineer",
@@ -33,7 +33,7 @@ export const metadata = {
     "MongoDB",
     "Next.js",
   ],
-  authors: [{ name: "Yogesh Rane", url: "https://portfolio-yogu.vercel.app/" }],
+  authors: [{ name: "Abdul Ahad Khan", url: "https://portfolio-yogu.vercel.app/" }],
   icons: {
     icon: [
       { url: "/favicon.png" },
