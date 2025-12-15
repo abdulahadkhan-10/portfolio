@@ -389,8 +389,8 @@ const App = () => {
         "An AI-powered chatbot built with Python, Flask, Gemini API, and LangChain to enhance user interaction on my portfolio site. It can answer queries, read and extract insights from PDFs, and provide real-time, document-based responses for a more engaging user experience.",
       technologies: ["Python", "Flask", "Gemini API", "LangChain"],
       image: "/images/portfolio-chatbot.png",
-      githubUrl: "https://github.com/yogu-code/personal-chat-bot", // Single repo
-      liveUrl: "https://portfolio-yogu.vercel.app",
+      githubUrl: "https://github.com/abdulahadkhan-10/chat-bot", // Single repo
+      // liveUrl: "https://portfolio-yogu.vercel.app", https://github.com/yogu-code/personal-chat-bot
       date: "2024",
       status: "Completed",
     },
@@ -407,9 +407,9 @@ const App = () => {
       ],
       // Multiple repositories
       image: "/images/chess-game.png",
-      frontendRepo: "https://github.com/yogu-code/chess-frontend",
-      backendRepo: "https://github.com/yogu-code/chess-backend",
-      liveUrl: "https://yogu-code.github.io/chess-frontend/",
+      frontendRepo: "https://github.com/",
+      backendRepo: "https://github.com/",
+      // liveUrl: "https://yogu-code.github.io/chess-frontend/",
       date: "2025",
       status: "Completed",
     },
@@ -418,42 +418,42 @@ const App = () => {
       description:
         "A React-based portfolio built with the MERN stack, focusing on frontend design and project showcases with minimal backend functionality.",
       technologies: ["Next.js", "React.js", "Tailwind CSS"],
-      image: "/images/portfolio-website.png",
-      githubUrl: "https://github.com/yogu-code/yogu-portfolio", // Single repo
+      image: "/images/image.png",
+      githubUrl: "https://github.com/abdulahadkhan-10/portfolio", // Single repo
       liveUrl: "https://portfolio-yogu.vercel.app",
       date: "2025",
       status: "Completed",
     },
-    {
-      title: "Job-Application Manager",
-      description:
-        "A full-stack application designed to help users manage and track their job applications. It provides features to add, update, and monitor application progress. The system also integrates with your work email to automatically detect HR-related emails about applications and update the application status accordingly.",
-      technologies: ["React", "Node.js", "MongoDB", "Nodemailer/IMAP API"],
-      frontendRepo:
-        "https://github.com/yogu-code/job-application-manager-frontend",
-      backendRepo:
-        "https://github.com/yogu-code/job-application-manager-backend",
-      liveUrl: "none",
-      date: "2025",
-      status: "in Progress",
-    },
-    {
-      title: "Component Shop",
-      description:
-        "A web app that showcases reusable UI components like buttons, cards, and navbars. Users can preview each component live, copy the code, and explore both free and premium components with filtering and search options.",
-      technologies: [
-        "MongoDB",
-        "Express.js",
-        "React",
-        "Node.js",
-        "Tailwind CSS",
-        "Next JS",
-      ],
-      githubUrl: "none",
-      liveUrl: "none",
-      date: "2025",
-      status: "In Progress",
-    },
+    // {
+    //   title: "Job-Application Manager",
+    //   description:
+    //     "A full-stack application designed to help users manage and track their job applications. It provides features to add, update, and monitor application progress. The system also integrates with your work email to automatically detect HR-related emails about applications and update the application status accordingly.",
+    //   technologies: ["React", "Node.js", "MongoDB", "Nodemailer/IMAP API"],
+    //   frontendRepo:
+    //     "https://github.com/yogu-code/job-application-manager-frontend",
+    //   backendRepo:
+    //     "https://github.com/yogu-code/job-application-manager-backend",
+    //   liveUrl: "none",
+    //   date: "2025",
+    //   status: "in Progress",
+    // },
+    // {
+    //   title: "Component Shop",
+    //   description:
+    //     "A web app that showcases reusable UI components like buttons, cards, and navbars. Users can preview each component live, copy the code, and explore both free and premium components with filtering and search options.",
+    //   technologies: [
+    //     "MongoDB",
+    //     "Express.js",
+    //     "React",
+    //     "Node.js",
+    //     "Tailwind CSS",
+    //     "Next JS",
+    //   ],
+    //   githubUrl: "none",
+    //   liveUrl: "none",
+    //   date: "2025",
+    //   status: "In Progress",
+    // },
   ];
 
   const containerVariants = {
